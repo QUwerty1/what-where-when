@@ -1,0 +1,26 @@
+{% macro collapse(title, text) %}
+
+    <div class="my-3">
+        <a class="collapse-btn" href="#collapseChGKDesc"
+           data-bs-toggle="collapse" role="button" style="color: var(--bs-red)">
+            <h1 class="d-inline-block">
+                <i class="bi bi-caret-right-fill position-relative caret"></i>
+                {{ title }}
+            </h1>
+        </a>
+        <div class="collapse" id="collapseChGKDesc">
+            <div class="card card-body">
+                <p>
+                    {{ text }}
+                </p>
+            </div>
+        </div>
+    </div>
+
+{% endmacro %}
+{% macro link(href, text) %}
+    <a class="link" href="{{ href }}">
+        {{ text }}
+        <i class="bi bi-box-arrow-up-right"></i>
+    </a>
+{% endmacro %}

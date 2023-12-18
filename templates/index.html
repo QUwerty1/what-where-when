@@ -1,0 +1,184 @@
+{% extends "shared/_layout.html" %}
+{% set title = "Главная" %}
+
+{% set carousel_slides = [
+    {"href": "https://vk.com", "alt": "", "img": "https://sun9-47.userapi.com/impf/AtGIwdx9eJL5yvUAMBKX7ueO8e6RrFgx5_M_iA/x_Z-cgkHvuo.jpg?size=1818x606&quality=95&crop=0,0,1591,530&sign=66e85bd6568cbf46752def3f0278bb9e&type=cover_group"},
+    {"href": "https://vk.com", "alt": "", "img": "https://4lapy.ru/resize/1664x1000/upload/medialibrary/270/2703fd71a17c0843c0b91bbe28c4fe0f.jpg"}
+] %}
+{#    {"href": "https://vk.com", "alt": "", "img": ""},#}
+{% set crumbs = [
+    {"title": "Главная", "link": "/"}
+] %}
+
+{% block content %}
+
+    <main class="container">
+        <div id="carouselExampleIndicators" class="carousel slide my-3">
+            <div class="carousel-inner">
+                <a href="{{ carousel_slides[0]["href"] }}" class="carousel-item active">
+                    <img src="{{ carousel_slides[0]["img"] }}" class="d-block w-100"
+                         alt="{{ carousel_slides[0]["alt"] }}">
+                </a>
+                {% for i in range(1, carousel_slides|length) %}
+                    {% set carousel_slide = carousel_slides[i] %}
+                    <a href="{{ carousel_slide["href"] }}" class="carousel-item">
+                        <img src="{{ carousel_slide["img"] }}" class="d-block w-100" alt="{{ carousel_slide["alt"] }}">
+                    </a>
+                {% endfor %}
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+                    data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+                    data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+        <div class="my-3">
+            <a class="collapse-btn" href="#collapseChGKDesc"
+               data-bs-toggle="collapse" role="button" style="color: var(--bs-red)">
+                <h3 class="d-inline-block">
+                    <i class="bi bi-caret-right-fill position-relative caret"></i>
+                    Кто такой этот ваш ЧГК?
+                </h3>
+            </a>
+            <div class="collapse" id="collapseChGKDesc">
+                <div class="card card-body">
+                    <p>
+                        ЧГК – командная игра, в которой команды соревнуются в умении находить правильный
+                        ответ на поставленный перед ними вопрос за ограниченное время. Цель команды в
+                        процессе игры - ответить на большее число вопросов, чем ее соперники.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="my-3">
+            <a class="collapse-btn" href="#collapseChGKRules"
+               data-bs-toggle="collapse" role="button" style="color: var(--bs-red)">
+                <h3 class="d-inline-block">
+                    <i class="bi bi-caret-right-fill position-relative caret"></i>
+                    Правила
+                </h3>
+            </a>
+            <div class="collapse" id="collapseChGKRules">
+                <div class="card card-body">
+                    <p>
+                        - Количество команд в общем случае ограничено только размером помещения, в котором проводятся
+                        игры.
+                        Все команды играют одновременно на одни и те же вопросы.
+                    </p>
+                    <p>
+                        - Обычно число игроков в команде ограничивают сверху: в команде может быть от 2 до 6 человек.
+                    </p>
+                    <p>
+                        - Игра, как правило, ведётся на заранее объявленном количестве вопросов — от 24 до 1001. Общее
+                        число
+                        вопросов разбивают на туры по 12-15 вопросов, между которыми игрокам дают возможность отдохнуть.
+                    </p>
+                    <p>
+                        - Ведущий игры задаёт командам вопрос. На обсуждение вопроса отводится минута (кроме случаев так
+                        называемых «блицев» — вопросов с укороченным контролем времени). Игроки команд совещаются,
+                        стараясь
+                        делать это по возможности тише, дабы не подслушали соперники.
+                    </p>
+                    <p>
+                        - После окончания минуты знатокам даётся ещё около 10 с для записи ответа на бумажках (ответных
+                        карточках). После чего капитан команды поднимает вверх руку с упомянутой карточкой. Карточки
+                        собирают ассистенты (в разных странах они получили разное название — ласточки, снегурочки).
+                        Собранные ответы передаются в компетентное (в теории) жюри, которое засчитывает или не
+                        засчитывает
+                        ответы командам. За каждый правильный ответ команда получает одно очко.
+                    </p>
+                    <p>
+                        - Правильный ответ записан у ведущего. Ответ считается неправильным:
+                    </p>
+                    <ul>
+                        <li>
+                            <p>если он не соответствует фактам вопроса, т.е. просто неправильный ответ (ответ «граф
+                                Толстой» на
+                                вопрос «Назовите человека, пытавшегося споить свою няню Арину Родионовну Яковлеву»;</p>
+                        </li>
+                        <li>
+                            <p>если форма ответа не соответствует форме вопроса (например, ответ «Александр» на вопрос
+                                «Назовите
+                                фамилию великого русского поэта Пушкина»);</p>
+                        </li>
+                        <li>
+                            <p>ответ недостаточно конкретный (например, ответ «мужчина» на вопрос «Кто был мужем
+                                Натальи
+                                Гончаровой?»);</p>
+                        </li>
+                        <li>
+                            <p>сдано более одного варианта ответа, один из которых неверен (ответ «Пушкина или
+                                Лермонтова,
+                                однозначно» на вопрос «Кого убил Дантес в 1837 году?»);</p>
+                        </li>
+                        <li>
+                            <p>в ответе допущены грубые ошибки, искажающие суть ответа (ответ «Василий Пушкин» на
+                                вопрос «Кто
+                                написал роман в стихах «Евгений Онегин»?»).</p>
+                        </li>
+                    </ul>
+                    <p>
+                        Во время игры запрещается пользоваться сотовыми телефонами и другими средствами связи. Если
+                        организаторы заметят во время игры в руках у какого-либо игрока или на столе команды мобильный
+                        телефон или другой гаджет, с помощью которого хотя бы теоретически можно выйти в сеть Интернет,
+                        организаторы имеют право применить к команде санкции в виде снятия очков (как правило, -5
+                        очков).
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="my-3">
+            <a class="collapse-btn" href="#collapseIncomeDesc"
+               data-bs-toggle="collapse" role="button" style="color: var(--bs-red)">
+                <h3 class="d-inline-block">
+                    <i class="bi bi-caret-right-fill position-relative caret"></i>
+                    Как начать играть в ЧГК?
+                </h3>
+            </a>
+            <div class="collapse" id="collapseIncomeDesc">
+                <div class="card card-body">
+                    <p style="text-align: justify">
+                        Ну, для начала было бы неплохо найти себе <s>собутыльников</s> сокамандников,
+                        которые готовы были бы попробовать принять учатсие в данном состязании.
+                        Если же с этим есть проблемы, то можно
+                        поискать таковых либо в тематических группах либо поучавствавать в форматах ЧГК, где
+                        команды после каждого раунда перемешивают. <br>
+                        Как раз такой, кстати, проходит в иркутском политехе в этом декабре. *активно подмигиваю*
+                        Больше информации по ссылке
+                        {{ macros.link("https://vk.com/iks_istu", "Интеллектуальный Клуб Студентов ИРНИТУ") }}
+                        <br>
+                        Подробнее о подготовке к ЧГК можно прочитать тут
+                        {{ macros.link(
+                            "https://dtf.ru/u/707149-passkey/1845033-kak-nachat-igrat-v-sportivnoe-chto-gde-kogda",
+                            "Как начать играть в спортивное “Что? Где? Когда?”") }}
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="my-3">
+            <a class="collapse-btn" href="#collapseWhatForDesc"
+               data-bs-toggle="collapse" role="button" style="color: var(--bs-red)">
+                <h3 class="d-inline-block">
+                    <i class="bi bi-caret-right-fill position-relative caret"></i>
+                    Ок, а зачем нужен этот сайт?
+                </h3>
+            </a>
+            <div class="collapse" id="collapseWhatForDesc">
+                <div class="card card-body">
+                    <p style="text-align: justify">
+                        Здесь я попытался собрать большую часть информации необходимой для того, чтобы начать
+                        играть в ЧГК (на самом деле всё это для самого старта небязательно, лично наша команда просто
+                        завалилась на турнир молодёжной лиги и начала играть)
+                    </p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+
+{% endblock %}

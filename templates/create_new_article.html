@@ -1,0 +1,24 @@
+{% extends "shared/_layout.html" %}
+{% set crumbs = [{}] %}
+
+{% block content %}
+    <main class="container">
+        <input id="title" type="text">
+        <br>
+        <input id="img" type="text">
+        <br>
+        <textarea class="w-100" id="text" rows="10"></textarea>
+        <button id="sendBtn">Отправить</button>
+    </main>
+    <script>
+        document.getElementById("sendBtn").addEventListener("click", () => {
+            let article = {
+                "title": document.getElementById("title").value,
+                "img": document.getElementById("img").value,
+                "text": document.getElementById("text").value
+            };
+            fetch("http://192.168.0.110:5000/create_post", {method: "POST", body: JSON.stringify(article)});
+            console.log("Всё ок")
+        });
+    </script>
+{% endblock %}

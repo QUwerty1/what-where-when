@@ -1,0 +1,55 @@
+{% set header_items = [
+    ["/", "Главная"],
+    ["/links", "Полезные ссылки"],
+    ["/glossary", "Глосарий"],
+    ["/about", "About"]
+] %}
+<header class="main-header">
+    <div class="upper-header">
+        <div class="container d-flex">
+            <a href="/" class="header-brand">
+                <div class="header-brand__img">
+                    {% include "shared/img/owl.svg" %}
+                </div>
+                <div class="header-brand__text">
+                    <span class="brand-name">Что? Где? Когда?</span>
+                </div>
+            </a>
+            <div class="theme-change-button">
+                <button id="js-theme-changer">
+                    <i id="js-theme-icon" class="bi bi-sun"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+</header>
+<nav class="nav-wrapper position-sticky top-0">
+    <div class="nav-header container navbar navbar-expand-lg">
+{#        <div class="header-search d-flex d-lg-none">#}
+{#            <form action="/search" method="get" class="btn-toolbar flex-grow-1">#}
+{#                <button><i class="bi bi-search"></i></button>#}
+{#                <input name="query" type="search" placeholder="Поиск">#}
+{#            </form>#}
+{#        </div>#}
+        <button class="navbar-toggler d-flex d-lg-none ms-2" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-list"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto mb-2 mb-lg-0 flex-lg-grow-1">
+                {% for header_item in header_items %}
+                    <li class="nav-item">
+                        <a class="nav-link header-item" href="{{ header_item[0] }}">{{ header_item[1] }}</a>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+{#        <div class="header-search d-none d-lg-flex">#}
+{#            <form action="/search" method="get" class="btn-toolbar">#}
+{#                <button><i class="bi bi-search"></i></button>#}
+{#                <input name="query" type="search" placeholder="Поиск">#}
+{#            </form>#}
+{#        </div>#}
+    </div>
+</nav>

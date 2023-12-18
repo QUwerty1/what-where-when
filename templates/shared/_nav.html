@@ -1,0 +1,13 @@
+{% if crumbs[0] != {} %}
+    <div class="breadcrumbs container">
+        <span class="subtitle">{{ title }}  </span>
+        <div class="crumbs-body">
+            {% for i in range(crumbs|length - 1) %}
+                {% set crumb = crumbs[i] %}
+                <a href="{{ crumb["link"] }}" class="crumb active">{{ crumb["title"] }}</a>
+                <span class="crumb-slash">/</span>
+            {% endfor %}
+            <span class="crumb">{{ crumbs[-1]["title"] }}</span>
+        </div>
+    </div>
+{% endif %}

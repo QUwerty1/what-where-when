@@ -1,0 +1,25 @@
+{% extends "shared/_layout.html" %}
+{% set title = data["title"] %}
+{% set crumbs = [
+    {"title": "Главная", "link": "/"},
+    {"title": "Глосарий", "link": "/glossary"},
+    {"title": data["title"], "link": ""},
+] %}
+
+{% block content %}
+    <main class="container">
+        <article class="row mt-4">
+            <div class="col-lg-4">
+                <img
+                        class="w-100 rounded-3 mb-3"
+                        src="{{ data["img"] }}"
+                        alt="{{ data["title"] }}">
+            </div>
+            <div class="col-lg-8">
+                <p>
+                    {{ data["text"] | safe }}
+                </p>
+            </div>
+        </article>
+    </main>
+{% endblock %}
